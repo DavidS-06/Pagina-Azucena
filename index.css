@@ -1,0 +1,303 @@
+@font-face {
+  font-family: "Century Gothic";
+  src: url("../assets/fonts/centurygothic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Century Gothic";
+  src: url("../assets/fonts/centurygothic_bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --ink: #193f70;
+  --muted: #56789f;
+  --blue: #2e68ad;
+  --line: #a1c2e4;
+  --border: #d2e4f8;
+  --placeholder: #e8f1fb;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(#f0f6fc, #d2e4f8);
+  color: var(--ink);
+  font-family: "Century Gothic", "CenturyGothic", sans-serif;
+  font-size: 20px;
+}
+.page-shell {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 34px 30px 28px;
+}
+.timeline {
+  width: 100%;
+}
+.page-header {
+  padding: 0 0 16px;
+  border-bottom: 1px solid #e3edf8;
+}
+.page-header h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.page-header p,
+.page-footer {
+  margin: 0;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.5;
+}
+.mobile-break {
+  display: none;
+}
+.milestones {
+  list-style: none;
+  margin: 25px 0 18px;
+  padding: 0;
+  position: relative;
+  height: clamp(900px, 115vh, 1450px);
+}
+.journey-path {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+.journey-path path {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.milestone {
+  position: absolute;
+  top: var(--node-y, 50%);
+  left: 0;
+  width: 100%;
+  height: 0;
+}
+.milestone-button {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  top: 0;
+  left: var(--node-position, 50%);
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--blue);
+  color: white;
+  font:
+    700 13px/1 "Century Gothic",
+    sans-serif;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+  transform: translate(-50%, -50%);
+}
+.milestone-button:hover,
+.milestone-button:focus-visible {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 0 5px #d9e9fa;
+  outline: none;
+}
+.milestone:last-child .milestone-button {
+  background: var(--ink);
+}
+.page-footer {
+  margin-top: 20px;
+}
+.tulip-decoration {
+  position: fixed;
+  z-index: 2;
+  right: 0px;
+  bottom: -10px;
+  width: clamp(400px, 17vw, 760px);
+  height: auto;
+  transform-origin: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.story-dialog {
+  width: min(950px, calc(100vw - 48px));
+  max-width: none;
+  max-height: calc(100dvh - 48px);
+  padding: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 30px;
+  background: #fff;
+  color: var(--ink);
+  overflow: auto;
+  box-shadow: 0 12px 30px rgb(25 63 112 / 10%);
+}
+.story-dialog::backdrop {
+  background: rgb(8 24 44 / 58%);
+  backdrop-filter: blur(2px);
+}
+.story-card {
+  position: relative;
+  padding: 30px;
+}
+.story-image-wrap {
+  height: auto;
+  margin-bottom: 30px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--placeholder);
+}
+.story-image-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.story-copy {
+  padding: 0 10px 20px;
+}
+.story-copy h2 {
+  margin: 0 56px 18px 0;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+.story-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.55;
+}
+.close-button {
+  position: absolute;
+  z-index: 2;
+  top: 42px;
+  right: 42px;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  font: 400 34px/1 sans-serif;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgb(25 63 112 / 8%);
+}
+.close-button:hover,
+.close-button:focus-visible {
+  background: var(--page);
+  outline: 2px solid var(--line);
+}
+.story-dialog.no-image {
+  width: min(950px, calc(100vw - 48px));
+}
+.story-dialog.no-image .story-card {
+  min-height: 310px;
+  display: flex;
+  align-items: center;
+  padding: 54px 50px;
+}
+.story-dialog.no-image .story-copy {
+  padding: 0;
+}
+.story-dialog.no-image .close-button {
+  top: 30px;
+  right: 30px;
+  box-shadow: none;
+}
+@media (max-width: 600px) {
+  .page-shell {
+    padding: 30px 14px 28px;
+  }
+  .page-header h1 {
+    font-size: 24px;
+  }
+  .mobile-break {
+    display: initial;
+  }
+  .milestones {
+    margin-top: 21px;
+    height: clamp(850px, 110vh, 1150px);
+  }
+  .milestone-button {
+    width: 38px;
+    height: 38px;
+    font-size: 11px;
+  }
+  .page-footer {
+    margin-top: 20px;
+  }
+  .tulip-decoration {
+    right: 4px;
+    bottom: -10px;
+    width: 112px;
+  }
+  .story-dialog {
+    width: calc(100vw - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 22px;
+  }
+  .story-card {
+    padding: 16px;
+  }
+  .story-image-wrap {
+    margin-bottom: 22px;
+    border-radius: 15px;
+  }
+  .close-button {
+    top: 25px;
+    right: 25px;
+    width: 44px;
+    height: 44px;
+    font-size: 30px;
+  }
+  .story-copy {
+    padding: 0 4px 14px;
+  }
+  .story-copy h2 {
+    font-size: 24px;
+    margin: 0 48px 13px 0;
+  }
+  .story-copy p {
+    font-size: 16px;
+  }
+  .story-dialog.no-image .story-card {
+    min-height: 260px;
+    padding: 40px 24px;
+  }
+  .story-dialog.no-image .close-button {
+    top: 17px;
+    right: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

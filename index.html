@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f0f6fc" />
+    <title>Hagamos un recuento de lo nuestro...</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="timeline" aria-labelledby="page-title">
+        <header class="page-header">
+          <h1 id="page-title">
+            Demos un pequeño<br class="mobile-break" />
+            repaso, cielito:3
+          </h1>
+          <p>A través de nuestro tiempo juntos uwu</p>
+        </header>
+        <ol class="milestones" id="milestones" aria-label="Recorrido"></ol>
+        <footer class="page-footer">
+          Sigamos construyendo lo <br class="mobile-break" />
+          nuestro día con día, mi niña, <br class="mobile-break" />
+          por favor;'3
+        </footer>
+      </section>
+    </main>
+
+    <img
+      class="tulip-decoration"
+      src="../assets/images/tulips.png"
+      alt=""
+      aria-hidden="true"
+    />
+
+    <dialog
+      class="story-dialog"
+      id="story-dialog"
+      aria-labelledby="dialog-title"
+    >
+      <article class="story-card">
+        <button class="close-button" type="button" aria-label="Cerrar diálogo">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="story-image-wrap" id="story-image-wrap">
+          <img
+            id="dialog-image"
+            alt=""
+          />
+        </div>
+        <div class="story-copy">
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-description"></p>
+        </div>
+      </article>
+    </dialog>
+  </body>
+</html>
